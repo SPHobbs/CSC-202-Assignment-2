@@ -1,59 +1,38 @@
+import java.util.EmptyStackException;
 
-public class FoodCategoryLinkedList {
 
-	private Node<T> head;
-	private Node<T> tail;
+public class FoodCategoryLinkedList<T> {
+
+	private FoodCategoryNode<T> head;
+	private FoodCategoryNode<T> tail;
 	
-	public LL() {
+	public FoodCategoryLinkedList() {
 		head = null;
 	}
-	
-	
-	//insert for queue (FIFO)
 	public void enqueue(T data) {
-		//1. create new node
-		Node <T>node = new Node<T>(data);
-		//2. move LL head
+		FoodCategoryNode <T>FoodCategoryNode = new FoodCategoryNode<T>(data);
 		if(head==null) {
-			this.head = node;
+			this.head = FoodCategoryNode;
 		} else {
-			this.tail.setPtr(node);
+			this.tail.setPtr(FoodCategoryNode);
 		}
-		//3. move tail to new tail
-		tail = node;		
+		tail = FoodCategoryNode;		
 	}
-
-	
-	public T dequeue() throws EmptyListException {
+	public T dequeue() throws EmptyStackException {
 		T element = null;
 		if(isEmpty()) {
-			throw new EmptyListException("Cannot dequeue from an empty list!");
+			throw new EmptyStackException();
 		}
 		element = (T) this.head.getData();
 		this.head = this.head.getPtr();
 		return element;
 	}
 	private boolean isEmpty() {
-		// TODO Auto-generated method stub
 		return this.head == null;
 	}
-
-
-	//insert for stack (LIFO)
-//	public void push(T data) {
-//		//1. create new node
-//		Node node = new Node(data);
-//		//1.1 set the pointer to head 
-//		if (head!=null) {
-//			node.setPtr(head);
-//		}
-//		//2. move LL head
-//		this.head = node;
-//	}
-	
 	public String toString() {
 		String list = "";
-		Node<T> current = this.head;
+		FoodCategoryNode<T> current = this.head;
 		while(current!=null) {
 			list += current.getData() + ",";
 			current = current.getPtr();

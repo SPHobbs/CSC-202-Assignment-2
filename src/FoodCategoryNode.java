@@ -1,14 +1,14 @@
 
-public class FoodCategoryNode {
+public class FoodCategoryNode<T> {
 	private T data;
-	private Node<T> ptr;
+	private FoodCategoryNode<T> ptr;
 
-	public Node(T data) {
+	public FoodCategoryNode(T data) {
 		this.data = data;
 		this.ptr = null;
 	}
 
-	public Node(T data, Node<T> ptr) {
+	public FoodCategoryNode(T data, FoodCategoryNode<T> ptr) {
 		this.data = data;
 		this.ptr = ptr;
 	}
@@ -21,11 +21,11 @@ public class FoodCategoryNode {
 		this.data = data;
 	}
 
-	public Node<T> getPtr() {
+	public FoodCategoryNode<T> getPtr() {
 		return ptr;
 	}
 
-	public void setPtr(Node<T> ptr) {
+	public void setPtr(FoodCategoryNode<T> ptr) {
 		this.ptr = ptr;
 	}
 }

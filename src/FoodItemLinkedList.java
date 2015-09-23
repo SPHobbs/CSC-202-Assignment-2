@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 
 public class FoodItemLinkedList<T> {
 	
@@ -16,10 +17,10 @@ public class FoodItemLinkedList<T> {
 		}
 		tail = FoodItemNode;		
 	}
-	public T dequeue() throws EmptyListException {
+	public T dequeue() throws EmptyStackException {
 		T element = null;
 		if(isEmpty()) {
-			throw new EmptyListException("Cannot dequeue from an empty list!");
+			throw new EmptyStackException();
 		}
 		element = (T) this.head.getData();
 		this.head = this.head.getPtr();
